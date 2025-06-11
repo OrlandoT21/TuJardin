@@ -1,0 +1,153 @@
+body {
+    font-family: 'Merriweather', serif;
+    margin: 0;
+    background-color: #f9f7f1;
+    color: #386641;
+    line-height: 1.6;
+    background-image: url('bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: rgba(249, 247, 237, 0.85);
+    color: #2a4d2e;
+    padding: 2em 0;
+    text-align: center;
+    border-bottom: 1px solid #a7c957;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
+    margin-bottom: 0.2em;
+}
+
+header p {
+    font-size: 1.1em;
+    color: #588157;
+}
+
+main {
+    padding: 2em;
+    flex-grow: 1;
+}
+
+#problem-list h2 {
+    color: #edfae7; /* Darker green for the heading */
+    background-color: rgba(89, 110, 35, 0.788);
+    padding-left: 15px;
+    border-radius: 5px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    text-align: center;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#back-button {
+    background-color: #a7c957;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#back-button:hover {
+    background-color: #8cb339;
+}
+
+#problem-button-container {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    display: flex; /* Enable flexbox for centering */
+    justify-content: center; /* Center items horizontally */
+    flex-wrap: wrap; /* Keep the wrapping behavior */
+    gap: 10px;
+}
+
+#problem-button-container button.select-issue {
+    background-color: #7d9942;
+    color: white;
+    border: none;
+    padding: 10px 15px; /* Adjust padding for horizontal layout */
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap; /* Prevent text from wrapping unnecessarily */
+    width: 300px;
+    min-height: auto; /* Adjust height as needed */
+}
+
+#problem-button-container button.select-issue.selected {
+    background-color: #566b28; /* The darker green shade */
+}
+
+#problem-button-container button.select-issue:hover {
+    background-color: #566b28;
+}
+
+#solution-container {
+    background-color: rgba(238, 255, 193, 0.767);
+    padding: 2em;
+    border: 1px solid #d2e5b9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+#solution-container h2 {
+    color: #386641;
+    border-bottom: 2px solid #a7c957;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5em 0;
+    background-color: rgba(249, 247, 237, 0.85);
+    border-top: 1px solid #a7c957;
+    font-size: 0.9em;
+    color: #588157;
+    margin-top: auto;
+}
+
+@keyframes floatDown {
+    0% {
+        transform: translateY(-100px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+}
+
+.leaf {
+    position: fixed;
+    font-size: 10px;
+    user-select: none;
+    pointer-events: none;
+    opacity: 0;
+    animation: floatDown 3s linear forwards;
+}
+
+.leafy {
+    position: fixed;
+    font-size: 10px;
+    user-select: none;
+    pointer-events: none;
+    opacity: 0;
+    animation: floatDown 3s linear forwards;
+}
