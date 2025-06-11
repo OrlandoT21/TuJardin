@@ -56,9 +56,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const solutionContainer = document.getElementById("solution-container");
     const solutionText = document.getElementById("solution-text");
     const problemButtonContainer = document.getElementById("problem-button-container");
-    const problemTitleDisplay = document.getElementById("problem-title"); // Get the new span
+    const problemTitleDisplay = document.getElementById("problem-title");
+    const problemImage = document.getElementById("problem-image");
 
-    // Definición de soluciones a los problemas comunes
     const solutions = {
         "Hojas amarillas": "El amarillamiento (clorosis) puede deberse a varios problemas. Verifica tus hábitos de riego primero: El riego excesivo sofoca las raíces, mientras que la falta de riego provoca deshidratación. Asegúrate de que tu maceta tenga orificios de drenaje. Luego, considera los nutrientes: El amarillamiento de las hojas más viejas puede indicar una deficiencia de nitrógeno (a menudo con una apariencia pálida general), mientras que el amarillamiento entre las venas de las hojas más jóvenes podría sugerir una deficiencia de hierro o magnesio (especialmente en suelos alcalinos). Utiliza un fertilizante líquido equilibrado diluido a la mitad de su fuerza cada 2-4 semanas durante la temporada de crecimiento, o un fertilizante de liberación lenta según las instrucciones del paquete. Considera los niveles de luz: Demasiada poca luz también puede causar hojas pálidas o amarillentas. Finalmente, verifica si hay plagas o enfermedades que puedan interrumpir la absorción de nutrientes.",
         "Manchas en las hojas": "Las manchas en las hojas pueden ser fúngicas, bacterianas o debidas a factores ambientales. Las manchas fúngicas a menudo aparecen circulares con anillos concéntricos o bordes oscuros, prosperando en condiciones húmedas. Mejora la circulación del aire, evita mojar las hojas al regar y considera un fungicida si el problema persiste. Las manchas bacterianas tienden a ser irregulares, empapadas en agua y pueden tener un halo amarillo. Retira las hojas afectadas y evita el riego por encima. Las quemaduras solares resultan en parches blanqueados o marrones y secos en áreas expuestas a la luz solar directa intensa; reubica la planta a un lugar más sombreado. Las deficiencias de nutrientes también pueden manifestarse como manchas; un fertilizante equilibrado podría ayudar.",
@@ -89,44 +89,82 @@ document.addEventListener("DOMContentLoaded", function() {
         "Olor desagradable en el sustrato": "Un olor desagradable, a humedad o a podrido que proviene de la tierra es un fuerte indicador de riego excesivo y probablemente la presencia de bacterias anaeróbicas u hongos. Deja que la tierra se seque considerablemente antes de volver a regar. Asegúrate de que la maceta tenga un drenaje adecuado. Considera trasplantar con tierra fresca y con buen drenaje."
     };
 
+    const solutionImages = {
+        "Hojas amarillas": "problemas/hojas-amarillas.jpg",
+        "Manchas en las hojas": "problemas/manchas-hojas.jpg",
+        "Hojas marchitas": "https://img.picturethisai.com/image/original/61f237ef39064c238b1d428aa767d013.jpg",
+        // Placeholder image for other problems. You can replace these with specific images.
+        "Puntas de las hojas marrones": "https://via.placeholder.com/400x300?text=Imagen+No+Disponible",
+        "Crecimiento alargado y débil": "https://via.placeholder.com/400x300?text=Imagen+No+Disponible",
+        "Polvo blanco en las hojas y tallos": "https://via.placeholder.com/400x300?text=Imagen+No+Disponible",
+        "Áfidos": "https://via.placeholder.com/400x300?text=Imagen+No+Disponible",
+        "Moscas/mosquitos": "https://via.placeholder.com/400x300?text=Imagen+No+Disponible",
+        "Raíces blandas y marrones": "https://via.placeholder.com/400x300?text=Imagen+No+Disponible",
+        "Crecimiento lento": "https://via.placeholder.com/400x300?text=Imagen+No+Disponible",
+        "Hojas rizadas": "https://via.placeholder.com/400x300?text=Imagen+No+Disponible",
+        "Sustancia pegajosa en las hojas": "https://via.placeholder.com/400x300?text=Imagen+No+Disponible",
+        "Falta de floración": "https://via.placeholder.com/400x300?text=Imagen+No+Disponible",
+        "Venas de las hojas amarillas": "https://via.placeholder.com/400x300?text=Imagen+No+Disponible",
+        "Agujeros en las hojas": "https://via.placeholder.com/400x300?text=Imagen+No+Disponible",
+        "Bordes de las hojas quemados": "https://via.placeholder.com/400x300?text=Imagen+No+Disponible",
+        "Caída repentina de hojas": "https://via.placeholder.com/400x300?text=Imagen+No+Disponible",
+        "Hojas pálidas o sin color": "https://via.placeholder.com/400x300?text=Imagen+No+Disponible",
+        "Flores que se marchitan rápidamente": "https://via.placeholder.com/400x300?text=Imagen+No+Disponible",
+        "Telarañas finas en las hojas": "https://via.placeholder.com/400x300?text=Imagen+No+Disponible",
+        "Bultos anormales en hojas o tallos": "https://via.placeholder.com/400x300?text=Imagen+No+Disponible",
+        "Base del tallo blanda o ennegrecida": "https://via.placeholder.com/400x300?text=Imagen+No+Disponible",
+        "Cristales blancos en el sustrato": "https://via.placeholder.com/400x300?text=Imagen+No+Disponible",
+        "Hojas jóvenes muy pequeñas": "https://via.placeholder.com/400x300?text=Imagen+No+Disponible",
+        "Hojas deformadas o retorcidas": "https://via.placeholder.com/400x300?text=Imagen+No+Disponible",
+        "Barrenadores (túneles en hojas)": "https://via.placeholder.com/400x300?text=Imagen+No+Disponible",
+        "Olor desagradable en el sustrato": "https://via.placeholder.com/400x300?text=Imagen+No+Disponible"
+    };
 
     // Create and append buttons for each problem
-    let currentRow = document.createElement('div'); // Initialize the first row
+    let currentRow = document.createElement('div');
     currentRow.style.display = 'flex';
-    currentRow.style.flexWrap = 'wrap'; // Enable wrapping
+    currentRow.style.flexWrap = 'wrap';
     currentRow.style.gap = '10px';
     currentRow.style.marginBottom = '15px';
     problemButtonContainer.appendChild(currentRow);
 
-    const buttons = {}; // To keep track of the created buttons
+    const buttons = {};
 
     for (const issueKey in solutions) {
         const button = document.createElement('button');
-        button.textContent = issueKey; // Use the problem title as the button text
+        button.textContent = issueKey;
         button.classList.add('select-issue');
-        button.setAttribute('data-issue', issueKey); // Set the data-issue to the problem title (key)
+        button.setAttribute('data-issue', issueKey);
         currentRow.appendChild(button);
-        buttons[issueKey] = button; // Store the button for later use
+        buttons[issueKey] = button;
     }
 
     // Event listener for the dynamically created buttons
     problemButtonContainer.addEventListener('click', function(event) {
         if (event.target.classList.contains('select-issue')) {
-            // Reset the color of the previously selected button
             const previouslySelected = problemButtonContainer.querySelector('.selected');
             if (previouslySelected) {
                 previouslySelected.classList.remove('selected');
-                previouslySelected.style.backgroundColor = '#7d9942'; // Revert to the original color
+                previouslySelected.style.backgroundColor = '#7d9942';
             }
 
             const issueKey = event.target.getAttribute("data-issue");
             solutionText.textContent = solutions[issueKey] || "No hay información disponible.";
-            problemTitleDisplay.textContent = issueKey; // Set the problem title
+            problemTitleDisplay.textContent = issueKey;
             solutionContainer.style.display = "block";
 
-            // Change the color of the currently selected button
+            // Update the image based on the selected problem
+            const imageUrl = solutionImages[issueKey];
+            if (imageUrl) {
+                problemImage.src = imageUrl;
+                problemImage.alt = `Imagen de ${issueKey}`;
+                problemImage.style.display = 'block'; // Show the image
+            } else {
+                problemImage.style.display = 'none'; // Hide if no image
+            }
+
             event.target.classList.add('selected');
-            event.target.style.backgroundColor = '#566b28'; // Darker green
+            event.target.style.backgroundColor = '#566b28';
         }
     });
 });

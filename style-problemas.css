@@ -113,6 +113,14 @@ main {
     margin-bottom: 1em;
 }
 
+#problem-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 1em;
+    border-radius: 8px;
+}
+
 footer {
     text-align: center;
     padding: 1.5em 0;
