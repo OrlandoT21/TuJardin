@@ -38,7 +38,7 @@ main {
 }
 
 #problem-list h2 {
-    color: #edfae7; /* Darker green for the heading */
+    color: #edfae7;
     background-color: rgba(89, 110, 35, 0.788);
     padding-left: 15px;
     border-radius: 5px;
@@ -68,9 +68,9 @@ main {
 #problem-button-container {
     margin-top: 2em;
     margin-bottom: 2em;
-    display: flex; /* Enable flexbox for centering */
-    justify-content: center; /* Center items horizontally */
-    flex-wrap: wrap; /* Keep the wrapping behavior */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 10px;
 }
 
@@ -78,19 +78,19 @@ main {
     background-color: #7d9942;
     color: white;
     border: none;
-    padding: 10px 15px; /* Adjust padding for horizontal layout */
+    padding: 10px 15px;
     cursor: pointer;
     border-radius: 5px;
     font-size: 0.9em;
     font-weight: 600;
     text-align: center;
-    white-space: nowrap; /* Prevent text from wrapping unnecessarily */
+    white-space: nowrap;
     width: 300px;
-    min-height: auto; /* Adjust height as needed */
+    min-height: auto;
 }
 
 #problem-button-container button.select-issue.selected {
-    background-color: #566b28; /* The darker green shade */
+    background-color: #566b28;
 }
 
 #problem-button-container button.select-issue:hover {
@@ -104,6 +104,9 @@ main {
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #solution-container h2 {
@@ -111,25 +114,67 @@ main {
     border-bottom: 2px solid #a7c957;
     padding-bottom: 0.5em;
     margin-bottom: 1em;
+    width: 100%;
+    text-align: center;
+}
+
+#solution-container p {
+    text-align: center;
+    margin-bottom: 1em;
 }
 
 #problem-image {
-    max-width: 100%;
+    max-width: 60%;
     height: auto;
     display: block;
     margin-top: 1em;
     border-radius: 8px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-footer {
-    text-align: center;
-    padding: 1.5em 0;
-    background-color: rgba(249, 247, 237, 0.85);
-    border-top: 1px solid #a7c957;
+#back-to-list-button {
+    background-color: #a7c957;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
     font-size: 0.9em;
-    color: #588157;
-    margin-top: auto;
+    border-radius: 5px;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: fit-content;
 }
+
+#back-to-list-button:hover {
+    background-color: #8cb339;
+}
+
+/* Estilos para el footer */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5em 20px;
+  background-color: rgba(249, 247, 237, 0.85);
+  border-top: 1px solid #a7c957;
+  color: #588157;
+}
+
+.footer-content {
+  text-align: center;
+  flex: 1;
+}
+
+.footer-content button,
+.footer-content p {
+  display: block;
+  margin: 0 auto;
+}
+
 
 @keyframes floatDown {
     0% {
@@ -158,4 +203,22 @@ footer {
     pointer-events: none;
     opacity: 0;
     animation: floatDown 3s linear forwards;
+}
+
+/* Estilo para el enlace de WhatsApp */
+.whatsapp-link {
+  text-decoration: none;
+}
+
+/* Tamaño y efectos del icono */
+.whatsapp-icon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-icon:hover {
+  transform: scale(1.1);
 }
