@@ -32,6 +32,13 @@ header p {
     color: #588157;
 }
 
+.logo {
+      width: 100px;
+      height: auto;
+      display: block;
+      margin: 0 auto 0px; /* centrado y separación inferior */
+    }
+
 main {
     padding: 2em;
     flex-grow: 1;

@@ -1,48 +1,49 @@
 function createLeaf() {
-    const leaf = document.createElement('div');
-    leaf.textContent = '🍂';
-    leaf.classList.add('leaf');
-    document.body.appendChild(leaf);
+        const leaf = document.createElement('div');
+        leaf.textContent = '🍂';
+        leaf.classList.add('leaf');
+        document.body.appendChild(leaf);
 
-    leaf.style.left = Math.random() * window.innerWidth + 'px';
-    leaf.style.top = -20 + 'px';
+        leaf.style.left = Math.random() * window.innerWidth + 'px';
+        leaf.style.top = Math.random() * window.innerHeight + 'px';
 
-    setTimeout(() => {
-        leaf.remove();
-    }, 6000);
-}
-
-function sprinkleFairyDust() {
-    const numberOfLeaves = 3;
-    for (let i = 0; i < numberOfLeaves; i++) {
-        createLeaf();
+        setTimeout(() => {
+            leaf.remove();
+        }, 3000);
     }
-}
 
-setInterval(sprinkleFairyDust, 500);
-
-function createLeafy() {
-    const leaf = document.createElement('div');
-    leaf.textContent = '🍃';
-    leaf.classList.add('leafy');
-    document.body.appendChild(leaf);
-
-    leaf.style.left = Math.random() * window.innerWidth + 'px';
-    leaf.style.top = -20 + 'px';
-
-    setTimeout(() => {
-        leaf.remove();
-    }, 6000);
-}
-
-function FallingLeaves() {
-    const numberOfLeaves = 2;
-    for (let i = 0; i < numberOfLeaves; i++) {
-        createLeafy();
+    function sprinkleFairyDust() {
+        const numberOfLeaves = 3;
+        for (let i = 0; i < numberOfLeaves; i++) {
+            createLeaf();
+        }
     }
-}
 
-setInterval(FallingLeaves, 500);
+    setInterval(sprinkleFairyDust, 500);
+
+    function createLeafy() {
+        const leaf = document.createElement('div');
+        leaf.textContent = '🍃';
+        leaf.classList.add('leafy');
+        document.body.appendChild(leaf);
+
+        leaf.style.left = Math.random() * window.innerWidth + 'px';
+        leaf.style.top = Math.random() * window.innerHeight + 'px';
+
+        setTimeout(() => {
+            leaf.remove();
+        }, 3000);
+    }
+
+    function FallingLeaves() {
+        const numberOfLeaves = 2;
+        for (let i = 0; i < numberOfLeaves; i++) {
+            createLeafy();
+        }
+    }
+
+    setInterval(FallingLeaves, 500);
+    // End of Falling leaves
 
 document.addEventListener("DOMContentLoaded", function() {
     const backButton = document.getElementById("back-button");
